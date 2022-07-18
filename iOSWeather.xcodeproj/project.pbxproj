@@ -18,6 +18,9 @@
 		455035B328859134003C0980 /* iOSWeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455035B228859134003C0980 /* iOSWeatherUITestsLaunchTests.swift */; };
 		455035ED288591A9003C0980 /* iOSWeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455035E928859193003C0980 /* iOSWeatherKit.framework */; };
 		455035EE288591A9003C0980 /* iOSWeatherKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 455035E928859193003C0980 /* iOSWeatherKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45D35BA72885A66F0055C4D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA62885A66F0055C4D8 /* Constants.swift */; };
+		45D35BA82885A66F0055C4D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA62885A66F0055C4D8 /* Constants.swift */; };
+		45D35BA92885A66F0055C4D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA62885A66F0055C4D8 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,7 @@
 		455035B028859134003C0980 /* iOSWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSWeatherUITests.swift; sourceTree = "<group>"; };
 		455035B228859134003C0980 /* iOSWeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSWeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		455035E328859193003C0980 /* iOSWeatherKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSWeatherKit.xcodeproj; path = iOSWeatherKit/iOSWeatherKit.xcodeproj; sourceTree = "<group>"; };
+		45D35BA62885A66F0055C4D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				4550359A28859134003C0980 /* LaunchScreen.storyboard */,
 				4550359D28859134003C0980 /* Info.plist */,
 				4550359528859133003C0980 /* iOSWeather.xcdatamodeld */,
+				45D35BA62885A66F0055C4D8 /* Constants.swift */,
 			);
 			path = iOSWeather;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				4550359128859133003C0980 /* ViewController.swift in Sources */,
 				4550358D28859133003C0980 /* AppDelegate.swift in Sources */,
 				4550359728859133003C0980 /* iOSWeather.xcdatamodeld in Sources */,
+				45D35BA72885A66F0055C4D8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				455035A728859134003C0980 /* iOSWeatherTests.swift in Sources */,
+				45D35BA82885A66F0055C4D8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +359,7 @@
 			files = (
 				455035B128859134003C0980 /* iOSWeatherUITests.swift in Sources */,
 				455035B328859134003C0980 /* iOSWeatherUITestsLaunchTests.swift in Sources */,
+				45D35BA92885A66F0055C4D8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
