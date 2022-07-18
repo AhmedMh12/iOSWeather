@@ -21,4 +21,9 @@ public struct Main: Codable {
         case tempMin = "temp_min"
         case tempMax = "temp_max"
     }
+    public var celsius: (Double) {
+        get {
+            return toCelsius(kelvin: temp ?? 0)
+        }
+    }
 }

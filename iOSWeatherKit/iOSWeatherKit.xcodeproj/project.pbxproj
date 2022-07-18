@@ -33,6 +33,7 @@
 		45D35BA12885A2B20055C4D8 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35B9F2885A2B20055C4D8 /* Forecast.swift */; };
 		45D35BA42885A4D90055C4D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA32885A4D90055C4D8 /* NetworkManager.swift */; };
 		45D35BA52885A4D90055C4D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA32885A4D90055C4D8 /* NetworkManager.swift */; };
+		45D35BAC2885B1F30055C4D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BAB2885B1F30055C4D8 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		45D35B9C2885A27C0055C4D8 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		45D35B9F2885A2B20055C4D8 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		45D35BA32885A4D90055C4D8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		45D35BAB2885B1F30055C4D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		455035CB28859193003C0980 /* iOSWeatherKit */ = {
 			isa = PBXGroup;
 			children = (
+				45D35BAD2885B1FF0055C4D8 /* Helpers */,
 				45D35BA22885A4B10055C4D8 /* NetworkManager */,
 				45D35B83288596750055C4D8 /* Models */,
 				455035CC28859193003C0980 /* iOSWeatherKit.h */,
@@ -143,6 +146,14 @@
 				45D35BA32885A4D90055C4D8 /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		45D35BAD2885B1FF0055C4D8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				45D35BAB2885B1F30055C4D8 /* Utilities.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 				45D35B85288596920055C4D8 /* Weather.swift in Sources */,
 				45D35B88288596D20055C4D8 /* Location.swift in Sources */,
 				45D35B9A2885A2670055C4D8 /* City.swift in Sources */,
+				45D35BAC2885B1F30055C4D8 /* Utilities.swift in Sources */,
 				45D35B9D2885A27C0055C4D8 /* List.swift in Sources */,
 				45D35B972885A2160055C4D8 /* Main.swift in Sources */,
 				455035CE28859193003C0980 /* iOSWeatherKit.docc in Sources */,

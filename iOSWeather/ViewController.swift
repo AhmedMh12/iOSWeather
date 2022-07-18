@@ -17,7 +17,7 @@ class ViewController: UIViewController {
                     switch result {
                         case .success(let weather):
                         print( weather.name)
-                        print( "\(weather.main?.temp)")
+                        print( "\(weather.main?.celsius)")
                         case .error(_):
                             //Do something
                             break
