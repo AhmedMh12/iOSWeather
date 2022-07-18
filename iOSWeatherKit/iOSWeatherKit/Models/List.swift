@@ -11,6 +11,6 @@ public struct List: Codable {
     public let dt: Int
     public let clouds: Clouds
     public let main: Main
-    public let weather: [WeatherData]
+    public let weather: [WeatherDetails]
     public let wind: Wind
 }
