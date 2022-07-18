@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     let weatherApi = NetworkManager(key: API_Key,apiUrl: API_BASE_URL,version: API_Version)
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherApi.getWeatherForLocation(latitude: "5.567788", longitude: "1.5544") { result in
+       /* weatherApi.getWeatherForLocation(latitude: "5.567788", longitude: "1.5544") { result in
                     switch result {
                         case .success(let weather):
                         print( weather.name)
@@ -23,8 +23,14 @@ class ViewController: UIViewController {
                             break
                     }
                 }
+        
+        */
+        
+        
     }
 
-
+    
 }
+
+
 

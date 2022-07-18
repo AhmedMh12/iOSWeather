@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window:UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let centerVC = CityListViewController()
+        centerVC.view.backgroundColor = UIColor.white;
+        let navVC:UINavigationController = UINavigationController(rootViewController: centerVC)
+        self.window?.rootViewController = navVC;
         return true
     }
 

@@ -83,9 +83,11 @@ public class NetworkManager: ApiProtocol {
         - Returns: The full endpoint string with endpoint and version
     */
     func getEndpoint() -> String {
-        return "\(apiUrl)/\(version)/"
+        return "\(apiUrl)/data/\(version)/"
     }
-
+    func getGeoEndpoint() -> String {
+        return "\(apiUrl)/geo/1.0/"
+    }
     /**
         Add defaultParameter for all query
     */
@@ -98,6 +100,8 @@ public class NetworkManager: ApiProtocol {
     */
     private func send<T: Codable>(to endpoint: String, with parameters: [String: Any], completion: @escaping (Result<T>) -> Void) {
         var urlComponents = URLComponents(string: "\(getEndpoint())\(endpoint)")!
+            
+      /*  var urlComponents = endpoint == "cities" ?  URLComponents(string: "\(getGeoEndpoint())direct")! :  URLComponents(string: "\(getEndpoint())\(endpoint)")!*/
         urlComponents.queryItems = defaultParameters
         for (key, value) in parameters {
             urlComponents.queryItems?.append(URLQueryItem(name: key, value: (String(describing: value))))
@@ -110,8 +114,8 @@ public class NetworkManager: ApiProtocol {
             }
             do {
                 let decoder = JSONDecoder()
-                let weather = try decoder.decode(T.self, from: data)
-                completion(Result.success(weather))
+                let jsonObj = try decoder.decode(T.self, from: data)
+                completion(Result.success(jsonObj))
             } catch let error {
                 completion(Result.error(error))
             }
@@ -123,6 +127,11 @@ public class NetworkManager: ApiProtocol {
     Extension for all weather endpoint
 */
 extension NetworkManager:ApiWeatherProtocol {
+    
+    public func getCityByName(name: String,limit:Int,completion: @escaping (Result<Weather>) -> Void) {
+        send(to: "weather", with: ["q": name,"limit":limit], completion: completion)
+    }
+    
     
     public func getWeatherForLocation(latitude: String, longitude: String, completion: @escaping (Result<Weather>) -> Void) {
         send(to: "weather", with: ["lat": latitude, "lon": longitude], completion: completion)

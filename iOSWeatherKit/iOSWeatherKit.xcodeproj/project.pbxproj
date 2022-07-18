@@ -34,6 +34,8 @@
 		45D35BA42885A4D90055C4D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA32885A4D90055C4D8 /* NetworkManager.swift */; };
 		45D35BA52885A4D90055C4D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA32885A4D90055C4D8 /* NetworkManager.swift */; };
 		45D35BAC2885B1F30055C4D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BAB2885B1F30055C4D8 /* Utilities.swift */; };
+		45D35BC12885D05D0055C4D8 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BC02885D05D0055C4D8 /* Cities.swift */; };
+		45D35BC22885D05D0055C4D8 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BC02885D05D0055C4D8 /* Cities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,7 @@
 		45D35B9F2885A2B20055C4D8 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		45D35BA32885A4D90055C4D8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		45D35BAB2885B1F30055C4D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		45D35BC02885D05D0055C4D8 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 				45D35B992885A2670055C4D8 /* City.swift */,
 				45D35B9C2885A27C0055C4D8 /* List.swift */,
 				45D35B9F2885A2B20055C4D8 /* Forecast.swift */,
+				45D35BC02885D05D0055C4D8 /* Cities.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +273,7 @@
 				45D35B85288596920055C4D8 /* Weather.swift in Sources */,
 				45D35B88288596D20055C4D8 /* Location.swift in Sources */,
 				45D35B9A2885A2670055C4D8 /* City.swift in Sources */,
+				45D35BC12885D05D0055C4D8 /* Cities.swift in Sources */,
 				45D35BAC2885B1F30055C4D8 /* Utilities.swift in Sources */,
 				45D35B9D2885A27C0055C4D8 /* List.swift in Sources */,
 				45D35B972885A2160055C4D8 /* Main.swift in Sources */,
@@ -285,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D35BC22885D05D0055C4D8 /* Cities.swift in Sources */,
 				45D35BA52885A4D90055C4D8 /* NetworkManager.swift in Sources */,
 				45D35B86288596920055C4D8 /* Weather.swift in Sources */,
 				45D35B89288596D20055C4D8 /* Location.swift in Sources */,
