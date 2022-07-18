@@ -17,6 +17,8 @@
 		455035A728859134003C0980 /* iOSWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455035A628859134003C0980 /* iOSWeatherTests.swift */; };
 		455035B128859134003C0980 /* iOSWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455035B028859134003C0980 /* iOSWeatherUITests.swift */; };
 		455035B328859134003C0980 /* iOSWeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455035B228859134003C0980 /* iOSWeatherUITestsLaunchTests.swift */; };
+		455035ED288591A9003C0980 /* iOSWeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455035E928859193003C0980 /* iOSWeatherKit.framework */; };
+		455035EE288591A9003C0980 /* iOSWeatherKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 455035E928859193003C0980 /* iOSWeatherKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,35 @@
 			remoteGlobalIDString = 4550358828859133003C0980;
 			remoteInfo = iOSWeather;
 		};
+		455035E828859193003C0980 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 455035E328859193003C0980 /* iOSWeatherKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 455035C928859193003C0980;
+			remoteInfo = iOSWeatherKit;
+		};
+		455035EA28859193003C0980 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 455035E328859193003C0980 /* iOSWeatherKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 455035D328859193003C0980;
+			remoteInfo = iOSWeatherKitTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		455035EF288591A9003C0980 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				455035EE288591A9003C0980 /* iOSWeatherKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4550358928859133003C0980 /* iOSWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +81,7 @@
 		455035AC28859134003C0980 /* iOSWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		455035B028859134003C0980 /* iOSWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSWeatherUITests.swift; sourceTree = "<group>"; };
 		455035B228859134003C0980 /* iOSWeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSWeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		455035E328859193003C0980 /* iOSWeatherKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = iOSWeatherKit.xcodeproj; path = iOSWeatherKit/iOSWeatherKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455035ED288591A9003C0980 /* iOSWeatherKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +113,12 @@
 		4550358028859133003C0980 = {
 			isa = PBXGroup;
 			children = (
+				455035E328859193003C0980 /* iOSWeatherKit.xcodeproj */,
 				4550358B28859133003C0980 /* iOSWeather */,
 				455035A528859134003C0980 /* iOSWeatherTests */,
 				455035AF28859134003C0980 /* iOSWeatherUITests */,
 				4550358A28859133003C0980 /* Products */,
+				455035EC288591A9003C0980 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +164,22 @@
 			path = iOSWeatherUITests;
 			sourceTree = "<group>";
 		};
+		455035E428859193003C0980 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				455035E928859193003C0980 /* iOSWeatherKit.framework */,
+				455035EB28859193003C0980 /* iOSWeatherKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		455035EC288591A9003C0980 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +190,7 @@
 				4550358528859133003C0980 /* Sources */,
 				4550358628859133003C0980 /* Frameworks */,
 				4550358728859133003C0980 /* Resources */,
+				455035EF288591A9003C0980 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,6 +271,12 @@
 			mainGroup = 4550358028859133003C0980;
 			productRefGroup = 4550358A28859133003C0980 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 455035E428859193003C0980 /* Products */;
+					ProjectRef = 455035E328859193003C0980 /* iOSWeatherKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4550358828859133003C0980 /* iOSWeather */,
@@ -228,6 +285,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		455035E928859193003C0980 /* iOSWeatherKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = iOSWeatherKit.framework;
+			remoteRef = 455035E828859193003C0980 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		455035EB28859193003C0980 /* iOSWeatherKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = iOSWeatherKitTests.xctest;
+			remoteRef = 455035EA28859193003C0980 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4550358728859133003C0980 /* Resources */ = {
