@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="3MB-ag-ney" id="a9A-il-4Tk"/>
                 <outlet property="btnSearch" destination="gcc-my-zfx" id="C9k-I8-PCx"/>
+                <outlet property="namesTableView" destination="dcS-iQ-gVo" id="kO7-Wq-Maj"/>
                 <outlet property="tableView" destination="ygr-MF-t8h" id="TuT-dF-R3S"/>
                 <outlet property="txtSearch" destination="nau-tj-YAz" id="EDB-Bv-XwT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -58,19 +59,29 @@
                         <outlet property="delegate" destination="-1" id="SJF-Dz-pi4"/>
                     </connections>
                 </tableView>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dcS-iQ-gVo">
+                    <rect key="frame" x="30" y="134" width="290" height="128"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="Hs7-um-5CD"/>
+                    </constraints>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="dcS-iQ-gVo" firstAttribute="width" secondItem="nau-tj-YAz" secondAttribute="width" id="3ut-GJ-AQ5"/>
                 <constraint firstItem="nau-tj-YAz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="56" id="6jn-Mo-GSB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ygr-MF-t8h" secondAttribute="bottom" constant="20" id="Fa0-Hy-gy0"/>
                 <constraint firstItem="ygr-MF-t8h" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Fge-WI-GlS"/>
+                <constraint firstItem="dcS-iQ-gVo" firstAttribute="centerX" secondItem="nau-tj-YAz" secondAttribute="centerX" id="He9-L5-5FQ"/>
                 <constraint firstItem="nau-tj-YAz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Hut-Gz-LeG"/>
                 <constraint firstItem="gcc-my-zfx" firstAttribute="top" secondItem="nau-tj-YAz" secondAttribute="bottom" constant="50" id="IIW-I7-Kss"/>
                 <constraint firstItem="gcc-my-zfx" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="IjN-fM-mHM"/>
                 <constraint firstItem="ygr-MF-t8h" firstAttribute="top" secondItem="gcc-my-zfx" secondAttribute="bottom" constant="100" id="KQU-G7-ah3"/>
                 <constraint firstItem="3MB-ag-ney" firstAttribute="top" secondItem="nau-tj-YAz" secondAttribute="bottom" constant="-37" id="Scj-Xn-O7K"/>
                 <constraint firstItem="nau-tj-YAz" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="YCa-mD-e9Y"/>
+                <constraint firstItem="dcS-iQ-gVo" firstAttribute="top" secondItem="nau-tj-YAz" secondAttribute="bottom" id="gAD-jK-jYW"/>
                 <constraint firstItem="ygr-MF-t8h" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="lRu-gH-2De"/>
                 <constraint firstItem="3MB-ag-ney" firstAttribute="leading" secondItem="nau-tj-YAz" secondAttribute="trailing" constant="10" id="ltH-Xw-xPl"/>
                 <constraint firstItem="3MB-ag-ney" firstAttribute="centerY" secondItem="nau-tj-YAz" secondAttribute="centerY" id="zx0-I3-fEa"/>

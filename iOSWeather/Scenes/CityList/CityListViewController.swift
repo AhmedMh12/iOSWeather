@@ -12,8 +12,8 @@ class CityListViewController: UIViewController {
        @IBOutlet weak var btnSearch: UIButton!
        @IBOutlet weak var txtSearch: UITextField!
        @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-       
-       let viewModel = CityListViewModel()
+       @IBOutlet weak var namesTableView: UITableView!
+    let viewModel = CityListViewModel()
        
        override func viewDidLoad() {
            super.viewDidLoad()
@@ -27,6 +27,7 @@ class CityListViewController: UIViewController {
        
        @IBAction func searchButtonPressed(_ sender: Any) {
            viewModel.searchText = txtSearch.text
+           namesTableView.isHidden = false
            viewModel.performSearch()
        }
    }
@@ -35,15 +36,21 @@ class CityListViewController: UIViewController {
    private extension CityListViewController {
        
        func setupVC() {
-           tableView.dataSource = self
+           namesTableView.dataSource = self
+           namesTableView.delegate = self
            title = "Add new city"
+           namesTableView.register(UINib.init(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "CityTableViewCell")
+           tableView.dataSource = self
+           tableView.delegate = self
            tableView.register(UINib.init(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "CityTableViewCell")
+
 
            setupBindings()
        }
        
        func setupBindings() {
-           tableView.bindTo(viewModel.results)
+           namesTableView.bindTo(viewModel.results)
+           tableView.bindTo(viewModel.AddedCites)
            btnSearch.bindTo(viewModel.isButtonEnabled)
            activityIndicator.bindTo(viewModel.isLoadingEnabled)
           
@@ -51,22 +58,46 @@ class CityListViewController: UIViewController {
    }
 
    // MARK: - UITableViewDataSource
-   extension CityListViewController: UITableViewDataSource {
+   extension CityListViewController: UITableViewDataSource,UITableViewDelegate {
        
        func tableView(_ tableView: UITableView,
                       numberOfRowsInSection section: Int) -> Int {
-           viewModel.results.value.count
+           if tableView == namesTableView {
+               if viewModel.results.value.count == 0 {
+                   namesTableView.isHidden = true
+               }
+             return viewModel.results.value.count
+           }
+           else {
+             return viewModel.AddedCites.value.count
+           }
+           
        }
        
        func tableView(_ tableView: UITableView,
                       cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let itm = viewModel.getSearchResultVM(at: indexPath.row)
-           
-           let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
+           if tableView == namesTableView {
+               let itm = viewModel.getSearchResultVM(at: indexPath.row)
+               
+               let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
 
-           cell.cityName.text = itm.trackName
+               cell.cityName.text = itm.trackName
+               return cell
+           }
           
-           
-           return cell
+            let itm = viewModel.getCity(at: indexPath.row)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
+            cell.cityName.text = itm.trackName
+            return cell
        }
+       
+       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           if tableView == namesTableView {
+               let value = viewModel.results.value[indexPath.row]
+               viewModel.addCity(weather: value)
+               self.namesTableView.isHidden = true
+           }
+           
+       }
+       
    }

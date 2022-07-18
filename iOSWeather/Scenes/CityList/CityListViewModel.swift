@@ -10,6 +10,7 @@ import iOSWeatherKit
 
 class CityListViewModel {
     let results: Binder<[Weather]> = Binder([])
+    let AddedCites: Binder<[Weather]> = Binder([])
     let error: Binder<String?> = Binder(nil)
     let isButtonEnabled: Binder<Bool> = Binder(false)
     let isLoadingEnabled: Binder<Bool> = Binder(false)
@@ -25,8 +26,8 @@ class CityListViewModel {
         let search = gSearchText.addingPercentEncoding(
             withAllowedCharacters: .urlHostAllowed
         ) ?? ""
-        
-        weatherApi.getCityByName(name: "douz", limit: 5) { result in
+        self.isLoadingEnabled.value = true
+        weatherApi.getCityByName(name: search, limit: 5) { result in
                     switch result {
                         case .success(let weather):
                         self.isLoadingEnabled.value = false
@@ -41,8 +42,18 @@ class CityListViewModel {
         
     }
     
+    func addCity(weather : Weather)  {
+        self.AddedCites.value.append(weather)
+        self.results.value.removeAll()
+        
+        
+    }
     func getSearchResultVM(at index: Int) -> SearchResultViewModel {
         let itm = results.value[index]
+        return SearchResultViewModel(searchResult: itm)
+    }
+    func getCity(at index: Int) -> SearchResultViewModel {
+        let itm = AddedCites.value[index]
         return SearchResultViewModel(searchResult: itm)
     }
 }
