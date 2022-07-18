@@ -123,6 +123,10 @@ public class NetworkManager: ApiProtocol {
     Extension for all weather endpoint
 */
 extension NetworkManager:ApiWeatherProtocol {
+    
+    public func getWeatherForLocation(latitude: String, longitude: String, completion: @escaping (Result<Weather>) -> Void) {
+        send(to: "weather", with: ["lat": latitude, "lon": longitude], completion: completion)
+    }
 
 }
 
