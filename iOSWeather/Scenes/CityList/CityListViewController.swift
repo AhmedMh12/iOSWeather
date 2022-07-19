@@ -9,10 +9,6 @@ import UIKit
 
 class CityListViewController: UIViewController {
        @IBOutlet weak var tableView: UITableView!
-       @IBOutlet weak var btnSearch: UIButton!
-       @IBOutlet weak var txtSearch: UITextField!
-       @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-       @IBOutlet weak var namesTableView: UITableView!
     let viewModel = CityListViewModel()
        
        override func viewDidLoad() {
@@ -20,40 +16,30 @@ class CityListViewController: UIViewController {
            setupVC()
        }
        
-       // MARK: IBActions
-       @IBAction func textFieldEditingChanged(_ sender: UITextField) {
-          
-       }
-       
-       @IBAction func searchButtonPressed(_ sender: Any) {
-           viewModel.searchText = txtSearch.text
-           namesTableView.isHidden = false
-           viewModel.performSearch()
-       }
    }
 
    // MARK: - Private
    private extension CityListViewController {
        
        func setupVC() {
-           namesTableView.dataSource = self
-           namesTableView.delegate = self
-           title = "Add new city"
-           namesTableView.register(UINib.init(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "CityTableViewCell")
+         
+           title = "Weather"
            tableView.dataSource = self
            tableView.delegate = self
            tableView.register(UINib.init(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "CityTableViewCell")
-
+           let addCityBarButtonItem = UIBarButtonItem(title: "Add City", style: .done, target: self, action: #selector(addNewCity))
+              self.navigationItem.rightBarButtonItem  = addCityBarButtonItem
 
            setupBindings()
        }
        
        func setupBindings() {
-           namesTableView.bindTo(viewModel.results)
            tableView.bindTo(viewModel.AddedCites)
-           btnSearch.bindTo(viewModel.isButtonEnabled)
-           activityIndicator.bindTo(viewModel.isLoadingEnabled)
           
+       }
+       @objc func addNewCity(){
+           let CityAddVc = SearchForCityViewController(nibName: "SearchForCityViewController", bundle: nil)
+           self.navigationController!.pushViewController(CityAddVc, animated: true)
        }
    }
 
@@ -62,28 +48,15 @@ class CityListViewController: UIViewController {
        
        func tableView(_ tableView: UITableView,
                       numberOfRowsInSection section: Int) -> Int {
-           if tableView == namesTableView {
-               if viewModel.results.value.count == 0 {
-                   namesTableView.isHidden = true
-               }
-             return viewModel.results.value.count
-           }
-           else {
-             return viewModel.AddedCites.value.count
-           }
+           
+        return viewModel.AddedCites.value.count
+           
            
        }
        
        func tableView(_ tableView: UITableView,
                       cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           if tableView == namesTableView {
-               let itm = viewModel.getSearchResultVM(at: indexPath.row)
-               
-               let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
-
-               cell.cityName.text = itm.trackName
-               return cell
-           }
+          
           
             let itm = viewModel.getCity(at: indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
@@ -92,11 +65,11 @@ class CityListViewController: UIViewController {
        }
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           if tableView == namesTableView {
-               let value = viewModel.results.value[indexPath.row]
-               viewModel.addCity(weather: value)
-               self.namesTableView.isHidden = true
-           }
+          
+               let CityWeatherVc = CityWeatherViewController(nibName: "CityWeatherViewController", bundle: nil)
+               CityWeatherVc.cityWeather = viewModel.AddedCites.value[indexPath.row]
+               self.navigationController!.pushViewController(CityWeatherVc, animated: true)
+           
            
        }
        

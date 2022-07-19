@@ -100,8 +100,6 @@ public class NetworkManager: ApiProtocol {
     */
     private func send<T: Codable>(to endpoint: String, with parameters: [String: Any], completion: @escaping (Result<T>) -> Void) {
         var urlComponents = URLComponents(string: "\(getEndpoint())\(endpoint)")!
-            
-      /*  var urlComponents = endpoint == "cities" ?  URLComponents(string: "\(getGeoEndpoint())direct")! :  URLComponents(string: "\(getEndpoint())\(endpoint)")!*/
         urlComponents.queryItems = defaultParameters
         for (key, value) in parameters {
             urlComponents.queryItems?.append(URLQueryItem(name: key, value: (String(describing: value))))
@@ -129,7 +127,7 @@ public class NetworkManager: ApiProtocol {
 extension NetworkManager:ApiWeatherProtocol {
     
     public func getCityByName(name: String,limit:Int,completion: @escaping (Result<Weather>) -> Void) {
-        send(to: "weather", with: ["q": name,"limit":limit], completion: completion)
+        send(to: "weather", with: ["q": name], completion: completion)
     }
     
     
