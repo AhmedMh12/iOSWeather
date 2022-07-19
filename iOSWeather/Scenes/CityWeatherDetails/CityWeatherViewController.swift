@@ -18,25 +18,29 @@ class CityWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cityName.text = cityWeather?.name
-        weatherDesc.text = cityWeather?.weather?.first?.description
-        if cityWeather?.weather?.first?.main == "Clear" && cityWeather?.clouds?.all == 0 {
+        
+        //let weatherObj: Set = cityWeather.weather.first
+        
+        /*
+        //weatherDesc.text = weatherObj[0].description
+        if cityWeather.weather.first.main == "Clear" && cityWeather.clouds.all == 0 {
             backgroundImg.image = UIImage(named: "Sunny")
         }
-        else if cityWeather?.weather?.first?.main == "Clouds" &&  cityWeather?.clouds?.all ?? 0 > 0 {
+        else if cityWeather?.weather.first.main == "Clouds" &&  cityWeather.clouds.all ?? 0 > 0 {
             backgroundImg.image = UIImage(named: "Clouds")
         }
-        else if cityWeather?.weather?.first?.main == "Rain" &&  cityWeather?.clouds?.all ?? 0 > 0 {
+        else if cityWeather?.weather.first.main == "Rain" &&  cityWeather.clouds.all ?? 0 > 0 {
             backgroundImg.image = UIImage(named: "Rain")
         }
         else {
             backgroundImg.image = UIImage(named: "Sunny")
         }
-        if let tempValue = cityWeather?.main?.celsius {
+        if let tempValue = cityWeather.main.celsius {
             temp.text =  String(format: "%.0f °C", tempValue)
         }
-        if let speed = cityWeather?.wind?.speed {
+        if let speed = cityWeather.wind.speed {
             windSpeed.text = String(format: "%.0f", speed)
-        }
+        }*/
         // Do any additional setup after loading the view.
     }
 

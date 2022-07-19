@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol ApiProtocol {
     var key: String {get}
@@ -54,6 +55,7 @@ public class NetworkManager: ApiProtocol {
     var urlSession: URLSessionProtocol
     /// defaultParameters added to all query
     var defaultParameters: [URLQueryItem] = []
+    var persistanceContainer : NSPersistentContainer
 
     /**
         Init kit
@@ -62,11 +64,12 @@ public class NetworkManager: ApiProtocol {
         - Parameter apiUrl: OpenWeatherMap endpoint
         - Parameter urlSession: URLSession used for query
     */
-    public init(key: String,apiUrl:String,version:String,urlSession: URLSessionProtocol) {
+    public init(key: String,apiUrl:String,version:String,persistanceContainer:NSPersistentContainer,urlSession: URLSessionProtocol) {
         self.key = key
         self.apiUrl = apiUrl
         self.version = version
         self.urlSession = urlSession
+        self.persistanceContainer = persistanceContainer
         self.defaultParameters.append(URLQueryItem(name: "APPID", value: key))
     }
 
@@ -75,8 +78,8 @@ public class NetworkManager: ApiProtocol {
 
         - Parameter key: OpenWeatherMap Key
     */
-    public convenience init(key: String,apiUrl: String,version: String) {
-        self.init(key: key,apiUrl: apiUrl,version: version, urlSession: URLSession.shared)
+    public convenience init(key: String,apiUrl: String,version: String,persistanceContainer:NSPersistentContainer) {
+        self.init(key: key,apiUrl: apiUrl,version: version,persistanceContainer:persistanceContainer, urlSession: URLSession.shared)
     }
 
     /**
@@ -104,7 +107,7 @@ public class NetworkManager: ApiProtocol {
         for (key, value) in parameters {
             urlComponents.queryItems?.append(URLQueryItem(name: key, value: (String(describing: value))))
         }
-
+       
         urlSession.dataTask(with: urlComponents.url!) { data, response, error in
             guard let data = data else {
                 completion(Result.error(WeatherError.invalidData))
