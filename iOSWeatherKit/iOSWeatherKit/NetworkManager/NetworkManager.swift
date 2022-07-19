@@ -98,7 +98,7 @@ public class NetworkManager: ApiProtocol {
     /**
         Send request
     */
-    private func send<T: Codable>(to endpoint: String, with parameters: [String: Any], completion: @escaping (Result<T>) -> Void) {
+    public func send<T: Codable>(to endpoint: String, with parameters: [String: Any], completion: @escaping (Result<T>) -> Void) {
         var urlComponents = URLComponents(string: "\(getEndpoint())\(endpoint)")!
         urlComponents.queryItems = defaultParameters
         for (key, value) in parameters {
@@ -120,24 +120,6 @@ public class NetworkManager: ApiProtocol {
             }.resume()
     }
 }
-
-/**
-    Extension for all weather endpoint
-*/
-extension NetworkManager:ApiWeatherProtocol {
-    
-    public func getCityByName(name: String,limit:Int,completion: @escaping (Result<Weather>) -> Void) {
-        send(to: "weather", with: ["q": name], completion: completion)
-    }
-    
-    
-    public func getWeatherForLocation(latitude: String, longitude: String, completion: @escaping (Result<Weather>) -> Void) {
-        send(to: "weather", with: ["lat": latitude, "lon": longitude], completion: completion)
-    }
-
-}
-
-
 
 
 

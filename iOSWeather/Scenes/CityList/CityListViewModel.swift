@@ -14,7 +14,7 @@ class CityListViewModel {
     let error: Binder<String?> = Binder(nil)
     let isButtonEnabled: Binder<Bool> = Binder(false)
     let isLoadingEnabled: Binder<Bool> = Binder(false)
-    let weatherApi = NetworkManager(key: API_Key,apiUrl: API_BASE_URL,version: API_Version)
+    let weatherApi = WeatherService()
 
     var searchText: String? = nil {
         didSet { isButtonEnabled.value = getEnabledFlowStatus() }

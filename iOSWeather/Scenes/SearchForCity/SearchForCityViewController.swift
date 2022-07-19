@@ -14,7 +14,7 @@ class SearchForCityViewController: UIViewController {
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var namesTableView: UITableView!
- let viewModel = SearchForCityViewModel()
+    let viewModel = SearchForCityViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
