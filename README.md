@@ -22,8 +22,8 @@ then:
 
 create a WeatherService.swift File :
 
-import Foundation
-import iOSWeatherKit
+    import Foundation
+    import iOSWeatherKit
 
     public class WeatherService {
     
