@@ -21,7 +21,7 @@ extension Weather {
     @NSManaged public var name: String?
     @NSManaged public var base: String?
     @NSManaged public var dt: Int16
-    @NSManaged public var coord: Location?
+   // @NSManaged public var coord: Location?
     @NSManaged public var wind: Wind?
     @NSManaged public var weather: Set<WeatherDetails>?
     @NSManaged public var sys: Sys?

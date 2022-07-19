@@ -101,7 +101,7 @@ public class NetworkManager: ApiProtocol {
     /**
         Send request
     */
-    public func send<T: Codable>(to endpoint: String, with parameters: [String: Any], completion: @escaping (Result<T>) -> Void) {
+    public func send<T: Codable>(to endpoint: String,decoder:JSONDecoder, with parameters: [String: Any], completion: @escaping (Result<T>) -> Void) {
         var urlComponents = URLComponents(string: "\(getEndpoint())\(endpoint)")!
         urlComponents.queryItems = defaultParameters
         for (key, value) in parameters {
@@ -114,7 +114,6 @@ public class NetworkManager: ApiProtocol {
                 return
             }
             do {
-                let decoder = JSONDecoder()
                 let jsonObj = try decoder.decode(T.self, from: data)
                 completion(Result.success(jsonObj))
             } catch let error {
