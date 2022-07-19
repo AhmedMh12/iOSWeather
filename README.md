@@ -25,7 +25,7 @@ create a WeatherService.swift File :
 import Foundation
 import iOSWeatherKit
 
-public class WeatherService {
+    public class WeatherService {
     
     let weatherService = NetworkManager(key: API_Key,apiUrl: API_BASE_URL,version: API_Version)
     
@@ -38,7 +38,7 @@ public class WeatherService {
         weatherService.send(to: "weather", with: ["lat": latitude, "lon": longitude], completion: completion)
     }
 
-}
+    }
 
 Finally:
 
@@ -48,7 +48,7 @@ create an instance of your weatherserviceFile
    
    and now you can call the api and get your response
    
-   weatherApi.getCityByName(name: search, limit: 5) { result in
+     weatherApi.getCityByName(name: search, limit: 5) { result in
             switch result {
             case .success(let weather):
                 self.isLoadingEnabled.value = false
