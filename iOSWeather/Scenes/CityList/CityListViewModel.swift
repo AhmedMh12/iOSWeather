@@ -7,6 +7,7 @@
 
 import Foundation
 import iOSWeatherKit
+import CoreLocation
 
 class CityListViewModel {
     let results: Binder<[Weather]> = Binder([])
@@ -15,38 +16,9 @@ class CityListViewModel {
     let isButtonEnabled: Binder<Bool> = Binder(false)
     let isLoadingEnabled: Binder<Bool> = Binder(false)
     let weatherApi = WeatherService()
-
+    var currentLocation: CLLocation!
     var searchText: String? = nil {
         didSet { isButtonEnabled.value = getEnabledFlowStatus() }
-    }
-    
-    func performSearch() {
-        guard let gSearchText = searchText else { return }
-        
-        let search = gSearchText.addingPercentEncoding(
-            withAllowedCharacters: .urlHostAllowed
-        ) ?? ""
-        self.isLoadingEnabled.value = true
-        weatherApi.getCityByName(name: search, limit: 5) { result in
-                    switch result {
-                        case .success(let weather):
-                        self.isLoadingEnabled.value = false
-                        self.results.value = [weather]
-                        
-                        case .error(_):
-                        self.isLoadingEnabled.value = false
-                        self.error.value = "*** ERROR ***"
-                            break
-                    }
-                }
-        
-    }
-    
-    func addCity(weather : Weather)  {
-        self.AddedCites.value.append(weather)
-        self.results.value.removeAll()
-        
-        
     }
     func getSearchResultVM(at index: Int) -> SearchResultViewModel {
         let itm = results.value[index]
@@ -55,6 +27,31 @@ class CityListViewModel {
     func getCity(at index: Int) -> SearchResultViewModel {
         let itm = AddedCites.value[index]
         return SearchResultViewModel(searchResult: itm)
+    }
+    
+    
+    func getMyCityWeather()  {
+        let locManager = CLLocationManager()
+        locManager.requestWhenInUseAuthorization()
+        if
+           CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+           CLLocationManager.authorizationStatus() ==  .authorizedAlways
+        {
+            currentLocation = locManager.location
+            weatherApi.getWeatherForLocation(latitude: "\(currentLocation.coordinate.latitude)", longitude: "\(currentLocation.coordinate.longitude)") { result in
+                switch result {
+                    case .success(let weather):
+                    self.isLoadingEnabled.value = false
+                    self.AddedCites.value.append(contentsOf: [weather]) 
+                    
+                    case .error(_):
+                    self.isLoadingEnabled.value = false
+                    self.error.value = "*** ERROR ***"
+                        break
+                }
+            }
+        }
+        
     }
 }
 

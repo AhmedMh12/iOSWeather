@@ -1,15 +1,14 @@
 //
-//  CityTableViewCell.swift
+//  SearchTableViewCell.swift
 //  iOSWeather
 //
-//  Created by Ahmed Mahouchi on 18/7/2022.
+//  Created by Ahmed Mahouchi on 19/7/2022.
 //
 
 import UIKit
 
-class CityTableViewCell: UITableViewCell {
+class SearchTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var btnBg: UIButton!
     @IBOutlet weak var cityName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

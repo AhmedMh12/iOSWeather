@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ygr-MF-t8h">
-                    <rect key="frame" x="20.5" y="94" width="373" height="748"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ygr-MF-t8h">
+                    <rect key="frame" x="0.0" y="94" width="414" height="748"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="t1V-25-BuX"/>
@@ -33,7 +33,7 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ygr-MF-t8h" secondAttribute="bottom" constant="20" id="Fa0-Hy-gy0"/>
                 <constraint firstItem="ygr-MF-t8h" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Fge-WI-GlS"/>
-                <constraint firstItem="ygr-MF-t8h" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="lRu-gH-2De"/>
+                <constraint firstItem="ygr-MF-t8h" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="lRu-gH-2De"/>
                 <constraint firstItem="ygr-MF-t8h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="nsC-ca-KxL"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="59.598214285714285"/>

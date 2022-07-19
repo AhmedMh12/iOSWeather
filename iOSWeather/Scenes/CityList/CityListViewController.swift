@@ -14,7 +14,9 @@ class CityListViewController: UIViewController {
        override func viewDidLoad() {
            super.viewDidLoad()
            setupVC()
+           viewModel.getMyCityWeather()
        }
+    
        
    }
 
@@ -22,11 +24,11 @@ class CityListViewController: UIViewController {
    private extension CityListViewController {
        
        func setupVC() {
-         
            title = "Weather"
            tableView.dataSource = self
            tableView.delegate = self
            tableView.register(UINib.init(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "CityTableViewCell")
+           tableView.separatorColor = .clear
            let addCityBarButtonItem = UIBarButtonItem(title: "Add City", style: .done, target: self, action: #selector(addNewCity))
               self.navigationItem.rightBarButtonItem  = addCityBarButtonItem
 
@@ -60,15 +62,28 @@ class CityListViewController: UIViewController {
           
             let itm = viewModel.getCity(at: indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
-            cell.cityName.text = itm.trackName
+           cell.cityName.text = itm.trackName
+           if itm.searchResult.weather?.first?.main == "Clear" && itm.searchResult.clouds?.all == 0 {
+               cell.btnBg.setBackgroundImage(UIImage(named: "Sunny"), for: .normal)
+           }
+           else if itm.searchResult.weather?.first?.main == "Clouds" &&  itm.searchResult.clouds?.all ?? 0 > 0 {
+               cell.btnBg.setBackgroundImage(UIImage(named: "Clouds"), for: .normal)
+           }
+           else if itm.searchResult.weather?.first?.main == "Rain" &&  itm.searchResult.clouds?.all ?? 0 > 0 {
+               cell.btnBg.setBackgroundImage(UIImage(named: "Rain"), for: .normal)
+           }
+           else {
+               cell.btnBg.setBackgroundImage(UIImage(named: "Sunny"), for: .normal)
+           }
+           cell.selectionStyle = .none
             return cell
        }
        
        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
           
                let CityWeatherVc = CityWeatherViewController(nibName: "CityWeatherViewController", bundle: nil)
-               CityWeatherVc.cityWeather = viewModel.AddedCites.value[indexPath.row]
-               self.navigationController!.pushViewController(CityWeatherVc, animated: true)
+               CityWeatherVc.viewModel.weather = viewModel.AddedCites.value[indexPath.row]
+                self.navigationController!.pushViewController(CityWeatherVc, animated: true)
            
            
        }

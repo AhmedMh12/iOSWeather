@@ -42,8 +42,8 @@ private extension SearchForCityViewController {
         namesTableView.register(UINib.init(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "CityTableViewCell")*/
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib.init(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "CityTableViewCell")
-
+        tableView.register(UINib.init(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
+        tableView.separatorColor = .clear
 
         setupBindings()
     }
@@ -70,9 +70,10 @@ extension SearchForCityViewController: UITableViewDataSource,UITableViewDelegate
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let itm = viewModel.getSearchResultVM(at: indexPath.row)
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
 
             cell.cityName.text = itm.trackName
+            cell.selectionStyle = .none
             return cell
        
     }

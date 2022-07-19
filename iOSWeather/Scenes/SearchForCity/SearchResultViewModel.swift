@@ -10,7 +10,7 @@ import iOSWeatherKit
 
 class SearchResultViewModel {
     
-    private var searchResult: Weather
+    public var searchResult: Weather
     
     init(searchResult: Weather) {
         self.searchResult = searchResult

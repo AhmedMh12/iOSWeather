@@ -13,7 +13,6 @@
 		455035DA28859193003C0980 /* iOSWeatherKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 455035CC28859193003C0980 /* iOSWeatherKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45D35BA42885A4D90055C4D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA32885A4D90055C4D8 /* NetworkManager.swift */; };
 		45D35BA52885A4D90055C4D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA32885A4D90055C4D8 /* NetworkManager.swift */; };
-		45D35BAC2885B1F30055C4D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BAB2885B1F30055C4D8 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +32,6 @@
 		455035D328859193003C0980 /* iOSWeatherKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSWeatherKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		455035D828859193003C0980 /* iOSWeatherKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSWeatherKitTests.swift; sourceTree = "<group>"; };
 		45D35BA32885A4D90055C4D8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		45D35BAB2885B1F30055C4D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +74,6 @@
 		455035CB28859193003C0980 /* iOSWeatherKit */ = {
 			isa = PBXGroup;
 			children = (
-				45D35BAD2885B1FF0055C4D8 /* Helpers */,
 				45D35BA22885A4B10055C4D8 /* NetworkManager */,
 				455035CC28859193003C0980 /* iOSWeatherKit.h */,
 				455035CD28859193003C0980 /* iOSWeatherKit.docc */,
@@ -98,14 +95,6 @@
 				45D35BA32885A4D90055C4D8 /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
-			sourceTree = "<group>";
-		};
-		45D35BAD2885B1FF0055C4D8 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				45D35BAB2885B1F30055C4D8 /* Utilities.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,7 +207,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45D35BA42885A4D90055C4D8 /* NetworkManager.swift in Sources */,
-				45D35BAC2885B1F30055C4D8 /* Utilities.swift in Sources */,
 				455035CE28859193003C0980 /* iOSWeatherKit.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

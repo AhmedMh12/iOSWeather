@@ -10,7 +10,7 @@ import Foundation
 internal let kKelvinZeroInCelsius = 273.15
 internal let kFahrenheitZeroInKelvin = -459.67
 
-func toCelsius(kelvin: Double) -> Double {
+public func toCelsius(kelvin: Double) -> Double {
     return kelvin - kKelvinZeroInCelsius
 }
 

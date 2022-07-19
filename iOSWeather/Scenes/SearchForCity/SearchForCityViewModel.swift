@@ -14,7 +14,7 @@ class SearchForCityViewModel {
     let isButtonEnabled: Binder<Bool> = Binder(false)
     let isLoadingEnabled: Binder<Bool> = Binder(false)
     let weatherApi = WeatherService()
-
+    
     var searchText: String? = nil {
         didSet { isButtonEnabled.value = getEnabledFlowStatus() }
     }
