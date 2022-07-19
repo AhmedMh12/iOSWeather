@@ -79,9 +79,12 @@ extension SearchForCityViewController: UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let CityListVc = CityListViewController(nibName: "CityListViewController", bundle: nil)
-            CityListVc.viewModel.AddedCites.value.append( viewModel.results.value[indexPath.row])
-            self.navigationController!.pushViewController(CityListVc, animated: true)
+            
+        
+        let CityListVc = navigationController!.viewControllers.filter { $0 is CityListViewController }.first! as? CityListViewController
+     
+        CityListVc?.viewModel.AddedCites.value.append( viewModel.results.value[indexPath.row])
+        navigationController!.popToViewController(CityListVc!, animated: true)
     }
     
 }

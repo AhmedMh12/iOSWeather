@@ -16,19 +16,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="326" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdN-JB-Ctj">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Grh-nb-VJe">
                         <rect key="frame" x="8" y="4.5" width="310" height="76.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title=" ">
-                            <backgroundConfiguration key="background" cornerRadius="10" image="sunnyCell">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="strokeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </backgroundConfiguration>
-                        </buttonConfiguration>
-                    </button>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGN-oT-sjr">
                         <rect key="frame" x="16.5" y="32" width="293" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,24 +29,21 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="MdN-JB-Ctj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="1jC-TZ-DIY"/>
+                    <constraint firstItem="Grh-nb-VJe" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="3ez-rX-6f2"/>
                     <constraint firstItem="WGN-oT-sjr" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="5Ii-Uf-q47"/>
-                    <constraint firstItem="MdN-JB-Ctj" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.9" id="5K9-xZ-gNx"/>
-                    <constraint firstItem="MdN-JB-Ctj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6VC-g6-clU"/>
-                    <constraint firstItem="MdN-JB-Ctj" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.95" id="8DK-87-v7s"/>
                     <constraint firstItem="WGN-oT-sjr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="M4L-74-wlb"/>
+                    <constraint firstItem="Grh-nb-VJe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QEw-BQ-R6w"/>
                     <constraint firstItem="WGN-oT-sjr" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Tw3-DK-VK1"/>
+                    <constraint firstItem="Grh-nb-VJe" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.95" id="fT5-ck-Rsh"/>
+                    <constraint firstItem="Grh-nb-VJe" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.9" id="zg0-ro-PlP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="btnBg" destination="MdN-JB-Ctj" id="bWo-xK-tPR"/>
                 <outlet property="cityName" destination="WGN-oT-sjr" id="P23-Xn-Of8"/>
+                <outlet property="imgBg" destination="Grh-nb-VJe" id="82j-54-bCI"/>
             </connections>
             <point key="canvasLocation" x="136.23188405797103" y="73.325892857142847"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="sunnyCell" width="196" height="74"/>
-    </resources>
 </document>

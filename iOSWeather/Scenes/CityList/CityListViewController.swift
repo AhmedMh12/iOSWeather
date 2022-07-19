@@ -16,7 +16,10 @@ class CityListViewController: UIViewController {
            setupVC()
            viewModel.getMyCityWeather()
        }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
        
    }
 
@@ -63,17 +66,19 @@ class CityListViewController: UIViewController {
             let itm = viewModel.getCity(at: indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
            cell.cityName.text = itm.trackName
+           cell.imgBg.layer.cornerRadius = 10
+           cell.imgBg.clipsToBounds = true
            if itm.searchResult.weather?.first?.main == "Clear" && itm.searchResult.clouds?.all == 0 {
-               cell.btnBg.setBackgroundImage(UIImage(named: "Sunny"), for: .normal)
+               cell.imgBg.image = UIImage(named: "sunnyCell")
            }
            else if itm.searchResult.weather?.first?.main == "Clouds" &&  itm.searchResult.clouds?.all ?? 0 > 0 {
-               cell.btnBg.setBackgroundImage(UIImage(named: "Clouds"), for: .normal)
+               cell.imgBg.image = UIImage(named: "rainCloudsCell")
            }
            else if itm.searchResult.weather?.first?.main == "Rain" &&  itm.searchResult.clouds?.all ?? 0 > 0 {
-               cell.btnBg.setBackgroundImage(UIImage(named: "Rain"), for: .normal)
+               cell.imgBg.image = UIImage(named: "rainCloudsCell")
            }
            else {
-               cell.btnBg.setBackgroundImage(UIImage(named: "Sunny"), for: .normal)
+               cell.imgBg.image = UIImage(named: "sunnyCell")
            }
            cell.selectionStyle = .none
             return cell
@@ -84,6 +89,7 @@ class CityListViewController: UIViewController {
                let CityWeatherVc = CityWeatherViewController(nibName: "CityWeatherViewController", bundle: nil)
                CityWeatherVc.viewModel.weather = viewModel.AddedCites.value[indexPath.row]
                 self.navigationController!.pushViewController(CityWeatherVc, animated: true)
+           
            
            
        }
