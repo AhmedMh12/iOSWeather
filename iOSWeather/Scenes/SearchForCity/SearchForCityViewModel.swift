@@ -19,6 +19,9 @@ class SearchForCityViewModel {
         didSet { isButtonEnabled.value = getEnabledFlowStatus() }
     }
     
+    
+    // MARK: SearchAction
+    
     func performSearch() {
         guard let gSearchText = searchText else { return }
         
@@ -27,26 +30,26 @@ class SearchForCityViewModel {
         ) ?? ""
         self.isLoadingEnabled.value = true
         weatherApi.getCityByName(name: search, limit: 5) { result in
-                    switch result {
-                        case .success(let weather):
-                        self.isLoadingEnabled.value = false
-                        self.results.value = [weather]
-                        
-                        case .error(_):
-                        self.isLoadingEnabled.value = false
-                        self.error.value = "*** ERROR ***"
-                            break
-                    }
-                }
+            switch result {
+            case .success(let weather):
+                self.isLoadingEnabled.value = false
+                self.results.value = [weather]
+                
+            case .error(_):
+                self.isLoadingEnabled.value = false
+                self.error.value = "*** ERROR ***"
+                break
+            }
+        }
         
     }
     
-   
+    
     func getSearchResultVM(at index: Int) -> SearchResultViewModel {
         let itm = results.value[index]
         return SearchResultViewModel(searchResult: itm)
     }
-   
+    
 }
 
 private extension SearchForCityViewModel {

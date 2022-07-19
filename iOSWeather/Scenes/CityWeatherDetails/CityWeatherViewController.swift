@@ -18,8 +18,10 @@ class CityWeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupVC()
-        // Do any additional setup after loading the view.
     }
+    
+    // MARK: SetUpView
+    
     func setupVC() {
         cityName.text = viewModel.weather?.name
         weatherDesc.text = viewModel.weather?.weather?.first?.description
@@ -43,15 +45,5 @@ class CityWeatherViewController: UIViewController {
             windSpeed.text = String(format: "%.0f", speed)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

@@ -34,20 +34,20 @@ class CityListViewModel {
         let locManager = CLLocationManager()
         locManager.requestWhenInUseAuthorization()
         if
-           CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-           CLLocationManager.authorizationStatus() ==  .authorizedAlways
+            CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+                CLLocationManager.authorizationStatus() ==  .authorizedAlways
         {
             currentLocation = locManager.location
             weatherApi.getWeatherForLocation(latitude: "\(currentLocation.coordinate.latitude)", longitude: "\(currentLocation.coordinate.longitude)") { result in
                 switch result {
-                    case .success(let weather):
+                case .success(let weather):
                     self.isLoadingEnabled.value = false
                     self.AddedCites.value.append(contentsOf: [weather]) 
                     
-                    case .error(_):
+                case .error(_):
                     self.isLoadingEnabled.value = false
                     self.error.value = "*** ERROR ***"
-                        break
+                    break
                 }
             }
         }

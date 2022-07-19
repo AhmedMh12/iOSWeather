@@ -36,10 +36,6 @@ class SearchForCityViewController: UIViewController {
 private extension SearchForCityViewController {
     
     func setupVC() {
-       /* namesTableView.dataSource = self
-        namesTableView.delegate = self
-        title = "Add new city"
-        namesTableView.register(UINib.init(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "CityTableViewCell")*/
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib.init(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchTableViewCell")
