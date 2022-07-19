@@ -18,6 +18,38 @@
             endingLineNumber = "71"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3758D20D-637E-45DA-B280-71B624DDA43E - 78e8273b6a92e593"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOSWeather.CityListViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "iOSWeather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmedmahouchi/Documents/iOS/iOSWeather/iOSWeather/Scenes/CityList/CityListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "1188">
+               </Location>
+               <Location
+                  uuid = "3758D20D-637E-45DA-B280-71B624DDA43E - 4be0035fb06d7890"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOSWeatherTests.CityListViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "iOSWeatherTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmedmahouchi/Documents/iOS/iOSWeather/iOSWeather/Scenes/CityList/CityListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "1188">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
