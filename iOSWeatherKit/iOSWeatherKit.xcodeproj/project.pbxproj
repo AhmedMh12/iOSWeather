@@ -11,6 +11,9 @@
 		455035D428859193003C0980 /* iOSWeatherKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455035C928859193003C0980 /* iOSWeatherKit.framework */; };
 		455035D928859193003C0980 /* iOSWeatherKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455035D828859193003C0980 /* iOSWeatherKitTests.swift */; };
 		455035DA28859193003C0980 /* iOSWeatherKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 455035CC28859193003C0980 /* iOSWeatherKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45C7948E28872CA800B542AD /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C7948D28872CA800B542AD /* MockSession.swift */; };
+		45D35BA42885A4D90055C4D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA32885A4D90055C4D8 /* NetworkManager.swift */; };
+		45D35BA52885A4D90055C4D8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D35BA32885A4D90055C4D8 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,8 @@
 		455035CD28859193003C0980 /* iOSWeatherKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = iOSWeatherKit.docc; sourceTree = "<group>"; };
 		455035D328859193003C0980 /* iOSWeatherKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSWeatherKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		455035D828859193003C0980 /* iOSWeatherKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSWeatherKitTests.swift; sourceTree = "<group>"; };
+		45C7948D28872CA800B542AD /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		45D35BA32885A4D90055C4D8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +76,7 @@
 		455035CB28859193003C0980 /* iOSWeatherKit */ = {
 			isa = PBXGroup;
 			children = (
+				45D35BA22885A4B10055C4D8 /* NetworkManager */,
 				455035CC28859193003C0980 /* iOSWeatherKit.h */,
 				455035CD28859193003C0980 /* iOSWeatherKit.docc */,
 			);
@@ -81,8 +87,17 @@
 			isa = PBXGroup;
 			children = (
 				455035D828859193003C0980 /* iOSWeatherKitTests.swift */,
+				45C7948D28872CA800B542AD /* MockSession.swift */,
 			);
 			path = iOSWeatherKitTests;
+			sourceTree = "<group>";
+		};
+		45D35BA22885A4B10055C4D8 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				45D35BA32885A4D90055C4D8 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D35BA42885A4D90055C4D8 /* NetworkManager.swift in Sources */,
 				455035CE28859193003C0980 /* iOSWeatherKit.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C7948E28872CA800B542AD /* MockSession.swift in Sources */,
+				45D35BA52885A4D90055C4D8 /* NetworkManager.swift in Sources */,
 				455035D928859193003C0980 /* iOSWeatherKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +418,7 @@
 		455035E128859193003C0980 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7H9Q2XBG8M;
@@ -416,6 +435,7 @@
 		455035E228859193003C0980 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7H9Q2XBG8M;

@@ -4,33 +4,51 @@
 //
 //  Created by Ahmed Mahouchi on 18/7/2022.
 //
-
+import Foundation
 import XCTest
 @testable import iOSWeatherKit
 
 class iOSWeatherKitTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testInit() {
+        let weatherApi = NetworkManager(key: "ApiKey",apiUrl: "https://api.openweathermap.org",version: "2.5")
+        XCTAssertEqual("ApiKey", weatherApi.key)
+        XCTAssertEqual("2.5", weatherApi.version)
+        XCTAssertEqual("https://api.openweathermap.org/data/2.5/", weatherApi.getEndpoint())
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testGetEndpoint() {
+        let weatherApi = NetworkManager(key: "ApiKey",apiUrl: "https://api.openweathermap.org",version: "2.5")
+        XCTAssertEqual("https://api.openweathermap.org/data/2.5/", weatherApi.getEndpoint())
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testDefaultParametersAddAPPID() {
+       let weatherApi = NetworkManager(key: "ApiKey",apiUrl: "https://api.openweathermap.org",version: "")
+
+        XCTAssertEqual(1, weatherApi.defaultParameters.count)
+
+        let queryItem = weatherApi.defaultParameters.first!
+        XCTAssertEqual("APPID", queryItem.name)
+        XCTAssertEqual("ApiKey", queryItem.value)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testAddDefaultParameter() {
+        let weatherApi = NetworkManager(key: "ApiKey",apiUrl: "https://api.openweathermap.org",version: "")
+
+        XCTAssertEqual(1, weatherApi.defaultParameters.count)
+
+        weatherApi.addDefaultParameter(name: "lang", value: "FR")
+        XCTAssertEqual(2, weatherApi.defaultParameters.count)
+
+        let queryItem = weatherApi.defaultParameters.first!
+        XCTAssertEqual("APPID", queryItem.name)
+        XCTAssertEqual("ApiKey", queryItem.value)
+
+        let secondItem = weatherApi.defaultParameters[1]
+        XCTAssertEqual("lang", secondItem.name)
+        XCTAssertEqual("FR", secondItem.value)
     }
+
+    
 
 }
